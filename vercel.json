@@ -18,7 +18,7 @@
   ],
   "functions": {
       "pages/api/users/**/*.js": {
-        "maxDuration": 90
+        "maxDuration": 30
       }
   }
 }
