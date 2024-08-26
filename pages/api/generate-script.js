@@ -30,10 +30,14 @@ Remember to maintain a calm, professional demeanor throughout the conversation. 
 `;
 
 export default async function handler(req, res) {
+  console.log('API route handler started');
   if (req.method === 'POST') {
     try {
       const { callee, company, context } = req.body;
       console.log('Received request:', { callee, company, context });
+
+      console.log('API Key:', apiKey ? 'Set' : 'Not set');
+      console.log('API URL:', API_URL);
 
       const response = await axios.post(API_URL, {
         model: "claude-3-sonnet-20240229",
@@ -51,23 +55,28 @@ export default async function handler(req, res) {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': process.env.API_KEY,
+          'x-api-key': apiKey,
           'anthropic-version': '2023-06-01'
         }
       });
 
-      console.log('API Response:', response.data);
+      console.log('API Response status:', response.status);
+      console.log('API Response data:', JSON.stringify(response.data, null, 2));
       console.log('Token Usage:', response.data.usage);
 
       let jsonContent = response.data.content[0].text;
       const jsonMatch = jsonContent.match(/```json\n([\s\S]*?)\n```/);
       if (jsonMatch) {
         jsonContent = jsonMatch[1];
+        console.log('Extracted JSON content:', jsonContent);
+      } else {
+        console.log('No JSON content found in the response');
       }
 
       let newScript;
       try {
         newScript = JSON.parse(jsonContent);
+        console.log('Parsed script:', JSON.stringify(newScript, null, 2));
       } catch (parseError) {
         console.error('Error parsing JSON:', parseError);
         return res.status(500).json({
@@ -79,7 +88,7 @@ export default async function handler(req, res) {
       }
 
       newScript.id = Date.now().toString();
-      console.log('Processed Script:', newScript);
+      console.log('Processed Script:', JSON.stringify(newScript, null, 2));
       res.status(200).json({
         script: newScript,
         tokenUsage: response.data.usage
