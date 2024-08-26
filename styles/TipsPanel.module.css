@@ -1,0 +1,66 @@
+.tipsPanel {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 80%;
+}
+
+.tipsPanel h3 {
+    font-size: 1.8em;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.tipsPanel h4 {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.tipsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tipsColumn {
+    width: 48%;
+}
+
+.tipItem {
+    margin-bottom: 20px;
+}
+
+.tipSummary {
+    color: #ace4c0;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.tipContent p {
+    margin: 10px 0;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.contentDivider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+.tipDivider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .tipsContainer {
+        flex-direction: column;
+    }
+
+    .tipsColumn {
+        width: 100%;
+    }
+}

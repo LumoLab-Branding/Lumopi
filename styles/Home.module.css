@@ -1,0 +1,131 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.appLayout {
+    display: flex;
+    gap: 20px;
+}
+
+.mainContent {
+    flex: 1;
+    background: linear-gradient(35deg, var(--background-light), var(--background-dark));
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.54);
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 420px;
+    background: linear-gradient(35deg, var(--background-light), var(--background-dark));
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.54);
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.promptingArea {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.promptContainer {
+    max-width: 100%;
+    padding: 0 3px;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.promptContainer.minimized {
+    max-height: 60px;
+}
+
+.fullWidthButton {
+    border: 1px solid var(--button-outline);
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.fullWidthButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.callScriptArea {
+    margin-top: 20px;
+}
+
+.scriptActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.loadScriptContainer {
+    display: flex;
+    align-items: center;
+}
+
+.dropArea {
+    border: 0px solid var(--text-color);
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.01);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dropArea:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    width: 250px;
+}
+
+@media (max-width: 768px) {
+    .appLayout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .scriptActions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .scriptActions > * {
+        margin-bottom: 10px;
+    }
+
+    .loadScriptContainer {
+        flex-direction: column;
+    }
+}
