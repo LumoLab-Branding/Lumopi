@@ -4,6 +4,7 @@ const apiKey = process.env.ANTHROPIC_API_KEY;
 const API_URL = "https://api.anthropic.com/v1/messages";
 
 // Updated on 2024-08-26: Added more detailed logging and error handling
+// Updated on 2024-08-26: Improved error messaging
 
 const persuasiveCommunicationPrompts = `
 1. Begin by acknowledging the client's perspective without immediately agreeing or disagreeing. Use phrases like:
