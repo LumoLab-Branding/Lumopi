@@ -18,7 +18,7 @@
   ],
   "functions": {
     "api/generate-script.js": {
-      "maxDuration": 60
+      "maxDuration": 90
     }
   }
 }
