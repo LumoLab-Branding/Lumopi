@@ -17,8 +17,8 @@
     }
   ],
   "functions": {
-    "pages/api/generate-script.js": {
-      "maxDuration": 90
-    }
+      "pages/api/users/**/*.js": {
+        "maxDuration": 90
+      }
   }
 }
