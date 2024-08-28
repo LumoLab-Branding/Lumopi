@@ -137,7 +137,7 @@ const Home = () => {
     const [progress, setProgress] = useState(0);
     const [showPrompt, setShowPrompt] = useState(true);
     const [isPromptMinimized, setIsPromptMinimized] = useState(false);
-    const [saveButtonText, setSaveButtonText] = useState('Save Script');
+    const [saveButtonText, setSaveButtonText] = useState('Save Lumopi Script');
     const fileInputRef = useRef(null);
     const promptRef = useRef(null);
     const dropAreaRef = useRef(null);
@@ -337,7 +337,7 @@ const Home = () => {
                                     style={{ display: 'none' }}
                                 />                                
                                 <div className={styles.dropArea} ref={dropAreaRef}>
-                                <button onClick={() => fileInputRef.current.click()}>Load Script or Drop</button>
+                                <button onClick={() => fileInputRef.current.click()}>Load Lumopi Script</button>
                                 </div>
                             </div>
                         </div>
