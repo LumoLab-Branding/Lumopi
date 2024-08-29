@@ -50,7 +50,6 @@ app.post('/api/generate-script', async (req, res) => {
           content: `Create a concise branching call script for calling ${callee} at ${company} based on the following context:\n${context}\n\nUse the following persuasive communication techniques:\n${persuasiveCommunicationPrompts}\n\nEnsure the script is comprehensive and incorporates the persuasive communication techniques effectively.YOUR TOP PRIORITY IS TO NOT EXCEED 900 TOKENS IN YOUR RESPONSE WITH EACH CONTENT POINT NO MORE THAN 40 WORDS AND NO MORE THAN 10 CONTENT POINTS.`
         }
       ],
-      extra_headers: {"anthropic-beta": "max-tokens-3-5-sonnet-2024-07-15"},
       system: "You are an AI assistant creating a branching call script. The script must be formatted as a JSON object with an 'id', 'title', and 'content' field. The 'content' field should contain steps, each with 'content' (teleprompter text for the caller) and 'options' (possible client responses). The 'options' array should contain objects with 'text' (client's response), 'nextStep' (key for the next step), and 'emoji' (a relevant emoji for the option). The initial step should have the key 'initial'. Ensure the script has a clear beginning and end. Incorporate the provided persuasive communication techniques throughout the script, adapting them to fit the specific context. Choose appropriate emojis that reflect the sentiment or action of each option. YOUR TOP PRIORITY IS TO NOT EXCEED 900 TOKEN IN YOUR RESPONSE WITH EACH CONTENT POINT NO MORE THAN 40 WORDS AND NO MORE THAN 10 CONTENT POINTS.",
       temperature: 0.1,
       top_p: 0.2,
@@ -59,6 +58,7 @@ app.post('/api/generate-script', async (req, res) => {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': API_KEY,
+        'anthropic-beta': 'max-tokens-3-5-sonnet-2024-07-15'
       }
     });
 

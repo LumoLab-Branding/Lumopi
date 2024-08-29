@@ -61,8 +61,8 @@ export default async function handler(req, res) {
           'x-api-key': apiKey,
           'anthropic-version': '2023-06-01'
         }
-        extra_headers: {
-          "anthropic-beta": "max-tokens-3-5-sonnet-2024-07-15"
+        defaultHeaders: {
+          'anthropic-beta': "max-tokens-3-5-sonnet-2024-07-15"
         }
       });
 
